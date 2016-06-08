@@ -1,0 +1,53 @@
+<html>
+<body>
+<form action="<?php echo $block->getFormActionUrl(); ?>" method="post">
+<p>Voornaam: <input type="text" name="frontname" /><br />
+<p>Achternaam: <input type="text" name="lastname" /><br />
+
+<p>Welke sector spreekt je nu het meest aan?* 
+<input type="radio" name="sector" value="E-Commerce" checked="checked" /> E-commerce 
+<input type="radio" name="sector" value="Hosting" /> Hosting
+<input type="radio" name="sector" value="Marketingbureau" /> Marketingbureau
+<input type="radio" name="sector" value="Gaming" /> Gaming
+<input type="radio" name="sector" value="Softwarehuis" /> Softwarehuis
+<input type="radio" name="sector" value="Web App development" /> web app development
+
+<p>Welke richting heeft nu jou voorkeur?*
+<input type="radio" name="direction" value="frontend" />Front-end
+<input type="radio" name="direction" value="backend" />Backend
+<input type="radio" name="direction" value="devops" />DevOps<br />
+
+<p>Wat vond je van de snelheid van lesgeven?*
+<input type="radio" name="speed" value="1" />1
+<input type="radio" name="speed" value="2" />2
+<input type="radio" name="speed" value="3" />3
+<input type="radio" name="speed" value="4" />4
+<input type="radio" name="speed" value="5" />5
+<input type="radio" name="speed" value="6" />6
+<br>
+
+<p>Wat vond je van de aangeboden stof?*
+<input type="radio" name="content" value="1" />1
+<input type="radio" name="content" value="2" />2
+<input type="radio" name="content" value="3" />3
+<input type="radio" name="content" value="4" />4
+<input type="radio" name="content" value="5" />5
+<input type="radio" name="content" value="6" />6
+<br>
+
+<p>Is er iets wat je niet goed hebt begrepen?*
+<input type="text" name="understood" /><br />
+
+<p>Heb je hulp gevraagd aan een van je mede bootcampers?*
+<input type="text" name="help" /><br />
+
+<p>Zo ja, wie was het meest behulpzaam?*
+<input type="text" name="person" /><br />
+
+<p>Your comments:<br />
+<textarea name="comments" rows="10" cols="40"></textarea></p>
+
+<p><input type="submit" value="submit"</p>
+</form>
+</body>
+</html>
