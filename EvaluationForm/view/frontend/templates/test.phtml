@@ -1,53 +1,123 @@
-<html>
-<body>
-<form action="<?php echo $block->getFormActionUrl(); ?>" method="post">
-<p>Voornaam: <input type="text" name="frontname" /><br />
-<p>Achternaam: <input type="text" name="lastname" /><br />
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 
-<p>Welke sector spreekt je nu het meest aan?* 
-<input type="radio" name="sector" value="E-Commerce" checked="checked" /> E-commerce 
-<input type="radio" name="sector" value="Hosting" /> Hosting
-<input type="radio" name="sector" value="Marketingbureau" /> Marketingbureau
-<input type="radio" name="sector" value="Gaming" /> Gaming
-<input type="radio" name="sector" value="Softwarehuis" /> Softwarehuis
-<input type="radio" name="sector" value="Web App development" /> web app development
+// @codingStandardsIgnoreFile
 
-<p>Welke richting heeft nu jou voorkeur?*
-<input type="radio" name="direction" value="frontend" />Front-end
-<input type="radio" name="direction" value="backend" />Backend
-<input type="radio" name="direction" value="devops" />DevOps<br />
+?>
+<form class="form contact"
+      action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl(); ?>"
+      id="contact-form"
+      method="post"
+      data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <div class="field name required">
+            <label class="label" for="name"><span><?php /* @escapeNotVerified */ echo __('Naam') ?></span></label>
+            <div class="control">
+                <input name="name" id="name" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
 
-<p>Wat vond je van de snelheid van lesgeven?*
-<input type="radio" name="speed" value="1" />1
-<input type="radio" name="speed" value="2" />2
-<input type="radio" name="speed" value="3" />3
-<input type="radio" name="speed" value="4" />4
-<input type="radio" name="speed" value="5" />5
-<input type="radio" name="speed" value="6" />6
-<br>
 
-<p>Wat vond je van de aangeboden stof?*
-<input type="radio" name="content" value="1" />1
-<input type="radio" name="content" value="2" />2
-<input type="radio" name="content" value="3" />3
-<input type="radio" name="content" value="4" />4
-<input type="radio" name="content" value="5" />5
-<input type="radio" name="content" value="6" />6
-<br>
+        <div class="field email required">
+            <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
 
-<p>Is er iets wat je niet goed hebt begrepen?*
-<input type="text" name="understood" /><br />
 
-<p>Heb je hulp gevraagd aan een van je mede bootcampers?*
-<input type="text" name="help" /><br />
+        <div class="field sector required">
+            <label class="label" for="sector"><span><?php /* @escapeNotVerified */ echo __('Welke sector spreekt je nu het meest aan?') ?></span></label>
+            <div class="control">
+                <input name="sector" id="sector" title="<?php /* @escapeNotVerified */ echo __('ecommerce') ?>" value="ecommerce" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }"  checked />E-commerce<br />
+                 <input name="sector" id="sector" title="<?php /* @escapeNotVerified */ echo __('hosting') ?>" value="hosting" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />Hosting<br />
+                  <input name="sector" id="sector" title="<?php /* @escapeNotVerified */ echo __('marketingbureau') ?>" value="marketingbureau" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />Marketingbureau<br />
+                 <input name="sector" id="sector" title="<?php /* @escapeNotVerified */ echo __('gaming') ?>" value="gaming" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />Gaming<br />
+                 <input name="sector" id="sector" title="<?php /* @escapeNotVerified */ echo __('softwarehuis') ?>" value="softwarehuis" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />Softwarehuis<br />
+                  <input name="sector" id="sector" title="<?php /* @escapeNotVerified */ echo __('appdev') ?>" value="appdev" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />Web App development<br />
+         </div>
+        </div>
 
-<p>Zo ja, wie was het meest behulpzaam?*
-<input type="text" name="person" /><br />
 
-<p>Your comments:<br />
-<textarea name="comments" rows="10" cols="40"></textarea></p>
+          <div class="field direction required">
+            <label class="label" for="direction"><span><?php /* @escapeNotVerified */ echo __('Welke richting spreekt je nu het meest aan?') ?></span></label>
+            <div class="control">
+                <input name="direction" id="direction" title="<?php /* @escapeNotVerified */ echo __('frontend') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }"  checked/>Frontend<br />
+                 <input name="direction" id="direction" title="<?php /* @escapeNotVerified */ echo __('backend') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />Backend<br />
+                  <input name="direction" id="direction" title="<?php /* @escapeNotVerified */ echo __('devops') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />DevOps<br />
+         </div>
+        </div>
 
-<p><input type="submit" value="submit"</p>
+
+       <div class="field speed required">
+            <label class="label" for="speed"><span><?php /* @escapeNotVerified */ echo __('Wat vindt je van de snelheid van het lesgeven?') ?></span></label>
+            <div class="control">
+                <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('1') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" checked />1<br />
+                 <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('2') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />2<br />
+                  <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('3') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />3<br />
+                 <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('4') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />4<br />
+                 <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('5') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />5<br />
+                  <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('6') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />6<br />
+         </div>
+        </div>
+
+
+       <div class="field content required">
+            <label class="label" for="content"><span><?php /* @escapeNotVerified */ echo __('Wat vond je van de aangeboden stof?') ?></span></label>
+            <div class="control">
+                <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('1') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" checked />1<br />
+                 <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('2') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />2<br />
+                  <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('3') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />3<br />
+                 <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('4') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />4<br />
+                 <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('5') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />5<br />
+                  <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('6') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />6<br />
+         </div>
+        </div>
+
+
+        <div class="field understood required">
+            <label class="label" for="understood"><span><?php /* @escapeNotVerified */ echo __('Is er iets wat je niet goed hebt begrepen?') ?></span></label>
+            <div class="control">
+                <input name="understood" id="understood" title="<?php /* @escapeNotVerified */ echo __('understood') ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+
+        <div class="field help required">
+            <label class="label" for="help"><span><?php /* @escapeNotVerified */ echo __('Heb je hulp gevraagd aan een van je mede bootcampers?') ?></span></label>
+            <div class="control">
+                <input name="help" id="help" title="<?php /* @escapeNotVerified */ echo __('help') ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+
+        <div class="field person required">
+            <label class="label" for="person"><span><?php /* @escapeNotVerified */ echo __('Zo ja, wie was het meest behulpzaam?') ?></span></label>
+            <div class="control">
+                <input name="person" id="person" title="<?php /* @escapeNotVerified */ echo __('person') ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+
+
+       <div class="field comment required">
+            <label class="label" for="comment"><span><?php /* @escapeNotVerified */ echo __('Verdere opmerkingen?') ?></span></label>
+            <div class="control">
+                <textarea name="comment" id="comment" title="<?php /* @escapeNotVerified */ echo __('Verdere opmerkingen?') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <?php echo $block->getChildHtml('form.additional.info'); ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?php /* @escapeNotVerified */ echo __('Submit') ?>" class="action submit primary">
+                <span><?php /* @escapeNotVerified */ echo __('Submit') ?></span>
+            </button>
+        </div>
+    </div>
 </form>
-</body>
-</html>
