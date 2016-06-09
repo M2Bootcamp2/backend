@@ -6,13 +6,23 @@
 -->
 <!--@subject Contact Form@-->
 <!--@vars {
-"var data.comment":"Comment",
 "var data.email":"Sender Email",
 "var data.name":"Sender Name",
-"var data.telephone":"Sender Telephone"
+"var data.sector":"Sector Info",
+"var data.direction":"Direction info",
+"var data.speed":"Speed info",
+"var data.understood":"Understood info",
+"var data.help":"Help info",
+"var data.person":"Person info",
+"var data.comment":"Comment"
 } @-->
 
 {{trans "Name: %name" name=$data.name}}
 {{trans "Email: %email" email=$data.email}}
-
+{{trans "Sector: %sector" sector=$data.sector}}
+{{trans "Direction: %direction" direction=$data.direction}}
+{{trans "Speed: %speed" speed=$data.speed}}
+{{trans "Understood: %understood" understood=$data.understood}}
+{{trans "Help: %help" help=$data.help}}
+{{trans "Person: %person" person=$data.person}}
 {{trans "Comment: %comment" comment=$data.comment}}

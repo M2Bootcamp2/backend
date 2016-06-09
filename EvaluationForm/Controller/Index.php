@@ -13,22 +13,21 @@ abstract class Index extends \Magento\Framework\App\Action\Action
     /**
      * Recipient email config path
      */
-    const XML_PATH_EMAIL_RECIPIENT = 'contact/email/recipient_email';
-
+    const XML_PATH_EMAIL_RECIPIENT = 'formulier/email/recipient_email';
     /**
      * Sender email config path
      */
-    const XML_PATH_EMAIL_SENDER = 'contact/email/sender_email_identity';
+    const XML_PATH_EMAIL_SENDER = 'formulier/email/sender_email_identity';
 
     /**
      * Email template config path
      */
-    const XML_PATH_EMAIL_TEMPLATE = 'contact/email/email_template';
+    const XML_PATH_EMAIL_TEMPLATE = 'formulier/email/email_template';
 
     /**
      * Enabled config path
      */
-    const XML_PATH_ENABLED = 'contact/contact/enabled';
+    const XML_PATH_ENABLED = 'formulier/formulier/enabled';
 
     /**
      * @var \Magento\Framework\Mail\Template\TransportBuilder

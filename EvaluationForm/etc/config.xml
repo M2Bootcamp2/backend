@@ -16,7 +16,7 @@
                     <![CDATA[hello@example.com]]>
                 </recipient_email>
                 <sender_email_identity>custom2</sender_email_identity>
-                <email_template>contact_email_email_template</email_template>
+                <email_template>formulier_email_email_template</email_template>
             </email>
         </contact>
     </default>

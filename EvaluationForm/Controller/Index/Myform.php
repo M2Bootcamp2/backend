@@ -5,7 +5,6 @@ use Magento\Framework\App\Action\Action;
 class Myform extends Index{
 
     public function execute(){
-
         $post = $this->getRequest()->getPostValue();
         if (!$post) {
             $this->_redirect('*/*/');
@@ -25,16 +24,16 @@ class Myform extends Index{
             if (!\Zend_Validate::is(trim($post['email']), 'EmailAddress')) {
                 $error = true;
             }
-            if (\Zend_Validate::is(trim($post['understood']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['understood']), 'NotEmpty')) {
                 $error = true;
             }
-            if (\Zend_Validate::is(trim($post['help']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['help']), 'NotEmpty')) {
                 $error = true;
             }
-            if (\Zend_Validate::is(trim($post['person']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['person']), 'NotEmpty')) {
                 $error = true;
             }
-            if (\Zend_Validate::is(trim($post['comment']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['comment']), 'NotEmpty')) {
                 $error = true;
             }
             if (\Zend_Validate::is(trim($post['hideit']), 'NotEmpty')) {
@@ -44,8 +43,6 @@ class Myform extends Index{
                 throw new \Exception();
             }
             
-	
-		
             $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
             $transport = $this->_transportBuilder
                 ->setTemplateIdentifier($this->scopeConfig->getValue(self::XML_PATH_EMAIL_TEMPLATE, $storeScope))
@@ -60,7 +57,6 @@ class Myform extends Index{
                 ->addTo($this->scopeConfig->getValue(self::XML_PATH_EMAIL_RECIPIENT, $storeScope))
                 ->setReplyTo($post['email'])
                 ->getTransport();
-
             $transport->sendMessage();
             $this->inlineTranslation->resume();
             $this->messageManager->addSuccess(
