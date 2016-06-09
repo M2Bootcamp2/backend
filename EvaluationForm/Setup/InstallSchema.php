@@ -1,5 +1,5 @@
 <?php
-namespace Frissrmod\EvaluationForm\Setup;
+namespace backend\EvaluationForm\Setup;
 use Magento\Framework\Setup\AdapterInterface;
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;

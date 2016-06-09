@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
-        <route id="EvaluationForm" frontName="EvaluationForm">
-            <module name="Frissrmod_EvaluationForm"/>
+        <route id="EvaluationForm" frontName="evaluation-form">
+            <module name="backend_EvaluationForm"/>
         </route>
     </router>
 </config>

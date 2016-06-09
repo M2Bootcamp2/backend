@@ -1,5 +1,5 @@
 <?php
-namespace Frissrmod\EvaluationForm\Controller;
+namespace backend\EvaluationForm\Controller;
 
 use Magento\Framework\Exception\NotFoundException;
 use Magento\Framework\App\RequestInterface;

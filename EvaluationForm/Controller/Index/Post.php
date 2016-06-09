@@ -1,8 +1,8 @@
 <?php
-namespace Frissrmod\EvaluationForm\Controller\Index;
+namespace backend\EvaluationForm\Controller\Index;
 use Magento\Framework\App\Action\Action;
 
-class Myform extends Index{
+class Post extends Index{
 
     public function execute(){
         $post = $this->getRequest()->getPostValue();

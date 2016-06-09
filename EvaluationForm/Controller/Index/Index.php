@@ -1,7 +1,7 @@
 <?php 
-namespace Frissrmod\EvaluationForm\Controller\Index; 
+namespace backend\EvaluationForm\Controller\Index; 
 
-class Index extends \Frissrmod\EvaluationForm\Controller\Index{ 
+class Index extends \backend\EvaluationForm\Controller\Index{ 
     
     public function execute(){
         $this->_view->loadLayout();

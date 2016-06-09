@@ -3,7 +3,7 @@
  * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Frissrmod\EvaluationForm\Model\System\Config\Backend;
+namespace backend\EvaluationForm\Model\System\Config\Backend;
 
 use Magento\Config\Model\Config\Backend\Cache;
 
