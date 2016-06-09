@@ -14,10 +14,18 @@
       data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
       data-mage-init='{"validation":{}}'>
     <fieldset class="fieldset">
-        <div class="field name required">
-            <label class="label" for="name"><span><?php /* @escapeNotVerified */ echo __('Naam') ?></span></label>
+        <div class="field firstname required">
+            <label class="label" for="firstname"><span><?php /* @escapeNotVerified */ echo __('Voornaam') ?></span></label>
             <div class="control">
-                <input name="name" id="name" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                <input name="firstname" id="firstname" title="<?php /* @escapeNotVerified */ echo __('firstname') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+
+        <div class="field lastname required">
+            <label class="label" for="lastname"><span><?php /* @escapeNotVerified */ echo __('Achternaam') ?></span></label>
+            <div class="control">
+                <input name="lastname" id="lastname" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
             </div>
         </div>
 
@@ -53,28 +61,28 @@
         </div>
 
 
-       <div class="field speed required">
-            <label class="label" for="speed"><span><?php /* @escapeNotVerified */ echo __('Wat vindt je van de snelheid van het lesgeven?') ?></span></label>
+       <div class="field pace required">
+            <label class="label" for="pace"><span><?php /* @escapeNotVerified */ echo __('Wat vindt je van de snelheid van het lesgeven?') ?></span></label>
             <div class="control">
-                <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('1') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" checked />1<br />
-                 <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('2') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />2<br />
-                  <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('3') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />3<br />
-                 <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('4') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />4<br />
-                 <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('5') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />5<br />
-                  <input name="speed" id="speed" title="<?php /* @escapeNotVerified */ echo __('6') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />6<br />
+                <input name="pace" id="pace" title="<?php /* @escapeNotVerified */ echo __('1') ?>" value="1" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" checked />1<br />
+                 <input name="pace" id="pace" title="<?php /* @escapeNotVerified */ echo __('2') ?>" value="2" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />2<br />
+                  <input name="pace" id="pace" title="<?php /* @escapeNotVerified */ echo __('3') ?>" value="3" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />3<br />
+                 <input name="pace" id="pace" title="<?php /* @escapeNotVerified */ echo __('4') ?>" value="4" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />4<br />
+                 <input name="pace" id="pace" title="<?php /* @escapeNotVerified */ echo __('5') ?>" value="5" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />5<br />
+                  <input name="pace" id="pace" title="<?php /* @escapeNotVerified */ echo __('6') ?>" value="6" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />6<br />
          </div>
         </div>
 
 
-       <div class="field content required">
-            <label class="label" for="content"><span><?php /* @escapeNotVerified */ echo __('Wat vond je van de aangeboden stof?') ?></span></label>
+       <div class="field materials required">
+            <label class="label" for="materials"><span><?php /* @escapeNotVerified */ echo __('Wat vond je van de aangeboden stof?') ?></span></label>
             <div class="control">
-                <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('1') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" checked />1<br />
-                 <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('2') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />2<br />
-                  <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('3') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />3<br />
-                 <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('4') ?>" value="frontend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />4<br />
-                 <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('5') ?>" value="backend" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />5<br />
-                  <input name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('6') ?>" value="devops" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />6<br />
+                <input name="materials" id="materials" title="<?php /* @escapeNotVerified */ echo __('1') ?>" value="1" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" checked />1<br />
+                 <input name="materials" id="materials" title="<?php /* @escapeNotVerified */ echo __('2') ?>" value="2" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />2<br />
+                  <input name="materials" id="materials" title="<?php /* @escapeNotVerified */ echo __('3') ?>" value="3" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />3<br />
+                 <input name="materials" id="materials" title="<?php /* @escapeNotVerified */ echo __('4') ?>" value="4" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />4<br />
+                 <input name="materials" id="materials" title="<?php /* @escapeNotVerified */ echo __('5') ?>" value="5" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />5<br />
+                  <input name="materials" id="materials" title="<?php /* @escapeNotVerified */ echo __('6') ?>" value="6" class="radio" type="radio" data-validate="{required:true, 'validate-one-required-by-name':true }" />6<br />
          </div>
         </div>
 
@@ -87,27 +95,27 @@
         </div>
 
 
-        <div class="field help required">
-            <label class="label" for="help"><span><?php /* @escapeNotVerified */ echo __('Heb je hulp gevraagd aan een van je mede bootcampers?') ?></span></label>
+        <div class="field help_asked required">
+            <label class="label" for="help_asked"><span><?php /* @escapeNotVerified */ echo __('Heb je hulp gevraagd aan een van je mede bootcampers?') ?></span></label>
             <div class="control">
-                <input name="help" id="help" title="<?php /* @escapeNotVerified */ echo __('help') ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                <input name="help_asked" id="help_asked" title="<?php /* @escapeNotVerified */ echo __('help_asked') ?>" class="input-text" type="text" data-validate="{required:true}"/>
             </div>
         </div>
 
 
-        <div class="field person required">
-            <label class="label" for="person"><span><?php /* @escapeNotVerified */ echo __('Zo ja, wie was het meest behulpzaam?') ?></span></label>
+        <div class="field helper required">
+            <label class="label" for="helper"><span><?php /* @escapeNotVerified */ echo __('Zo ja, wie was het meest behulpzaam?') ?></span></label>
             <div class="control">
-                <input name="person" id="person" title="<?php /* @escapeNotVerified */ echo __('person') ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                <input name="helper" id="helper" title="<?php /* @escapeNotVerified */ echo __('helper') ?>" class="input-text" type="text" data-validate="{required:true}"/>
             </div>
         </div>
 
 
 
-       <div class="field comment required">
-            <label class="label" for="comment"><span><?php /* @escapeNotVerified */ echo __('Verdere opmerkingen?') ?></span></label>
+       <div class="field questions required">
+            <label class="label" for="questions"><span><?php /* @escapeNotVerified */ echo __('Verdere opmerkingen?') ?></span></label>
             <div class="control">
-                <textarea name="comment" id="comment" title="<?php /* @escapeNotVerified */ echo __('Verdere opmerkingen?') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+                <textarea name="questions" id="questions" title="<?php /* @escapeNotVerified */ echo __('Verdere opmerkingen?') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
             </div>
         </div>
         <?php echo $block->getChildHtml('form.additional.info'); ?>

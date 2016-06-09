@@ -1,5 +1,5 @@
 <?php
-namespace backend\EvaluationForm\Block;
+namespace Frissrmod\EvaluationForm\Block;
 
 use Magento\Framework\View\Element\Template;
 

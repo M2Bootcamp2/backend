@@ -12,7 +12,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="backend_EvaluationForm::formulier" title="Frissr formulier" />
+                            <resource id="Frissrmod_EvaluationForm::formulier" title="Frissr formulier" />
                         </resource>
                     </resource>
                 </resource>

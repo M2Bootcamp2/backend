@@ -1,4 +1,4 @@
-- bring back contact us setup in admin backend
+- bring back contact us setup in admin Frissrmod
 - send mail to email-address, cc to user adress
 - Create add to database system (no clear documentation)
-- admin backend grid for database table viewing and maybe exporting
+- admin Frissrmod grid for database table viewing and maybe exporting

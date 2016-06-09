@@ -5,7 +5,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="backend\EvaluationForm\Block\EvaluationForm" name="EvaluationForm" template="backend_EvaluationForm::test.phtml"/>
+            <block class="Frissrmod\EvaluationForm\Block\EvaluationForm" name="EvaluationForm" template="Frissrmod_EvaluationForm::test.phtml"/>
         </referenceContainer>
     </body>
 </page>

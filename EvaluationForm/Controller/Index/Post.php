@@ -1,5 +1,5 @@
 <?php
-namespace backend\EvaluationForm\Controller\Index;
+namespace Frissrmod\EvaluationForm\Controller\Index;
 use Magento\Framework\App\Action\Action;
 
 class Post extends Index{
@@ -18,7 +18,10 @@ class Post extends Index{
 
             $error = false;
 
-            if (!\Zend_Validate::is(trim($post['name']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['firstname']), 'NotEmpty')) {
+                $error = true;
+            }
+            if (!\Zend_Validate::is(trim($post['lastname']), 'NotEmpty')) {
                 $error = true;
             }
             if (!\Zend_Validate::is(trim($post['email']), 'EmailAddress')) {
@@ -27,13 +30,13 @@ class Post extends Index{
             if (!\Zend_Validate::is(trim($post['understood']), 'NotEmpty')) {
                 $error = true;
             }
-            if (!\Zend_Validate::is(trim($post['help']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['help_asked']), 'NotEmpty')) {
                 $error = true;
             }
-            if (!\Zend_Validate::is(trim($post['person']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['helper']), 'NotEmpty')) {
                 $error = true;
             }
-            if (!\Zend_Validate::is(trim($post['comment']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['questions']), 'NotEmpty')) {
                 $error = true;
             }
             if (\Zend_Validate::is(trim($post['hideit']), 'NotEmpty')) {
@@ -57,6 +60,8 @@ class Post extends Index{
                 ->addTo($this->scopeConfig->getValue(self::XML_PATH_EMAIL_RECIPIENT, $storeScope))
                 ->setReplyTo($post['email'])
                 ->getTransport();
+
+
             $transport->sendMessage();
             $this->inlineTranslation->resume();
             $this->messageManager->addSuccess(
