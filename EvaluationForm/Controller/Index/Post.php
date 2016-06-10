@@ -2,10 +2,11 @@
 namespace Frissrmod\EvaluationForm\Controller\Index;
 use Magento\Framework\App\Action\Action;
 
-class Myform extends Index{
+class Post extends Index{
+
+    public $save;
 
     public function execute(){
-
         $post = $this->getRequest()->getPostValue();
         if (!$post) {
             $this->_redirect('*/*/');
@@ -19,25 +20,36 @@ class Myform extends Index{
 
             $error = false;
 
-            if (!\Zend_Validate::is(trim($post['name']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['firstname']), 'NotEmpty')) {
+                $error = true;
+            }
+            if (!\Zend_Validate::is(trim($post['lastname']), 'NotEmpty')) {
+                $error = true;
+            }
+            if (!\Zend_Validate::is(trim($post['email']), 'EmailAddress')) {
                 $error = true;
             }
             if (!\Zend_Validate::is(trim($post['understood']), 'NotEmpty')) {
                 $error = true;
             }
-            if (!\Zend_Validate::is(trim($post['help']), 'EmailAddress')) {
+            if (!\Zend_Validate::is(trim($post['help_asked']), 'NotEmpty')) {
                 $error = true;
             }
-            if (\Zend_Validate::is(trim($post['person']), 'NotEmpty')) {
+            if (!\Zend_Validate::is(trim($post['helper']), 'NotEmpty')) {
+                $error = true;
+            }
+            if (!\Zend_Validate::is(trim($post['questions']), 'NotEmpty')) {
+                $error = true;
+            }
+            if (\Zend_Validate::is(trim($post['hideit']), 'NotEmpty')) {
                 $error = true;
             }
             if ($error) {
                 throw new \Exception();
             }
             
-	
-		
             $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+            $websiteScope = \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITE;
             $transport = $this->_transportBuilder
                 ->setTemplateIdentifier($this->scopeConfig->getValue(self::XML_PATH_EMAIL_TEMPLATE, $storeScope))
                 ->setTemplateOptions(
@@ -49,17 +61,36 @@ class Myform extends Index{
                 ->setTemplateVars(['data' => $postObject])
                 ->setFrom($this->scopeConfig->getValue(self::XML_PATH_EMAIL_SENDER, $storeScope))
                 ->addTo($this->scopeConfig->getValue(self::XML_PATH_EMAIL_RECIPIENT, $storeScope))
+                ->addCC($post['email'])
                 ->setReplyTo($post['email'])
                 ->getTransport();
 
             $transport->sendMessage();
+
+            $model = $this->_objectManager->create('Frissrmod\EvaluationForm\Model\UserDatabase');
+            $model->setData('firstname', $post['firstname']);
+            $model->setData('lastname', $post['lastname']);
+            $model->setData('email', $post['email']);
+            $model->setData('sector', $post['sector']);
+            $model->setData('direction', $post['direction']);
+            $model->setData('pace', $post['pace']);
+            $model->setData('materials', $post['materials']);
+            $model->setData('unclear', $post['understood']);
+            $model->setData('help_asked', $post['help_asked']);
+            $model->setData('helper', $post['helper']);
+            $model->setData('questions', $post['questions']);
+
+            $model->save();
+
             $this->inlineTranslation->resume();
             $this->messageManager->addSuccess(
                 __('Thanks for contacting us with your comments and questions. We\'ll respond to you very soon.')
-            );
+            ); 
             $this->_redirect('EvaluationForm/index');
             return;
         } catch (\Exception $e) {
+            print($e);
+            die();
             $this->inlineTranslation->resume();
             $this->messageManager->addError(
                 __('We can\'t process your request right now. Sorry, that\'s all we know.')
@@ -67,41 +98,6 @@ class Myform extends Index{
             $this->_redirect('EvaluationForm/index');
             return;
         }
-
-        $username = "magento";
-        $password = "password";
-        $dbname = "myDB";
-
-         //create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if($conn->connect_error){
-            die($conn->connect_error);
-        }
-
-        echo "test3";
-        $frontname = $_POST['frontname'];
-        $lastname = $_POST['lastname'];
-        $sector = $_POST['sector'];
-        $direction = $_POST['direction'];
-        $speed = $_POST['speed'];
-        $content = $_POST['content'];
-        $understood = $_POST['understood'];
-        $help = $_POST['help'];
-        $person = $_POST['person'];
-        $comments = $_POST['comments'];
-
-        $sql = "INSERT INTO Frissrmod_EvaluationForm (frontname, lastname, sector, direction, speed, content, understood, help, person, comment) VALUES ($frontname, $lastname, $sector, $direction, $speed, $content, $understood, $help, $person, $comments)";
-
-        if($conn->query($sql) === TRUE){
-            echo "Success";
-        } else {
-            "error: " . $sql . "<br>" . $conn->error;
-        }
-
-        echo "submission";
-        $conn->close();
     }
 }
 ?>

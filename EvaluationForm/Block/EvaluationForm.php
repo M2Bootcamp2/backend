@@ -12,6 +12,6 @@ class EvaluationForm extends Template{
    // }
 
     public function getFormActionUrl(){
-        return $this->getUrl('EvaluationForm/index/myform', ['_secure' => true]);
+        return $this->getUrl('EvaluationForm/index/post', ['_secure' => true]);
     }
 }

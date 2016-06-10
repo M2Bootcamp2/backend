@@ -41,8 +41,15 @@ class InstallSchema implements InstallSchemaInterface
                        ['nullable' => false, 'default' => ''],
                        'Lastname'
                )
-
-		->addColumn(
+               ->addColumn(
+                        'email',
+                        Table::TYPE_TEXT,
+                        null,
+                        ['nullable' => false, 'default' => ''],
+                        'Email'
+               )
+                
+	       ->addColumn(
                        'sector',
                        Table::TYPE_TEXT,
                        null,
@@ -58,16 +65,16 @@ class InstallSchema implements InstallSchemaInterface
                )
                ->addColumn(
                        'pace',
-                       Table::TYPE_TEXT,
+                       Table::TYPE_INTEGER,
                        null,
-                       ['nullable' => false, 'default' => ''],
+                       ['nullable' => false, 'default' => '1'],
                        'Pace'
                )
                ->addColumn(
                        'materials',
-                       Table::TYPE_TEXT,
+                       Table::TYPE_INTEGER,
                        null,
-                       ['nullable' => false, 'default' => ''],
+                       ['nullable' => false, 'default' => '1'],
                        'Materials'
                )
                ->addColumn(
@@ -78,7 +85,7 @@ class InstallSchema implements InstallSchemaInterface
                        'Unclear'
                )
 
-		->addColumn(
+	       ->addColumn(
                        'help_asked',
                        Table::TYPE_TEXT,
                        null,
