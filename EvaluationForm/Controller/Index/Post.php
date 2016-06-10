@@ -47,6 +47,7 @@ class Post extends Index{
             }
             
             $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+            $websiteScope = \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITE;
             $transport = $this->_transportBuilder
                 ->setTemplateIdentifier($this->scopeConfig->getValue(self::XML_PATH_EMAIL_TEMPLATE, $storeScope))
                 ->setTemplateOptions(
@@ -58,9 +59,9 @@ class Post extends Index{
                 ->setTemplateVars(['data' => $postObject])
                 ->setFrom($this->scopeConfig->getValue(self::XML_PATH_EMAIL_SENDER, $storeScope))
                 ->addTo($this->scopeConfig->getValue(self::XML_PATH_EMAIL_RECIPIENT, $storeScope))
+                ->addCC($post['email'])
                 ->setReplyTo($post['email'])
                 ->getTransport();
-
 
             $transport->sendMessage();
             $this->inlineTranslation->resume();
@@ -70,6 +71,8 @@ class Post extends Index{
             $this->_redirect('EvaluationForm/index');
             return;
         } catch (\Exception $e) {
+            print($e);
+            die();
             $this->inlineTranslation->resume();
             $this->messageManager->addError(
                 __('We can\'t process your request right now. Sorry, that\'s all we know.')
