@@ -67,14 +67,14 @@ class InstallSchema implements InstallSchemaInterface
                        'pace',
                        Table::TYPE_INTEGER,
                        null,
-                       ['nullable' => false, 'default' => ''],
+                       ['nullable' => false, 'default' => '1'],
                        'Pace'
                )
                ->addColumn(
                        'materials',
                        Table::TYPE_INTEGER,
                        null,
-                       ['nullable' => false, 'default' => ''],
+                       ['nullable' => false, 'default' => '1'],
                        'Materials'
                )
                ->addColumn(

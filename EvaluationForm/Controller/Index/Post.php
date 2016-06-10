@@ -4,6 +4,8 @@ use Magento\Framework\App\Action\Action;
 
 class Post extends Index{
 
+    public $save;
+
     public function execute(){
         $post = $this->getRequest()->getPostValue();
         if (!$post) {
@@ -64,10 +66,26 @@ class Post extends Index{
                 ->getTransport();
 
             $transport->sendMessage();
+
+            $model = $this->_objectManager->create('Frissrmod\EvaluationForm\Model\UserDatabase');
+            $model->setData('firstname', $post['firstname']);
+            $model->setData('lastname', $post['lastname']);
+            $model->setData('email', $post['email']);
+            $model->setData('sector', $post['sector']);
+            $model->setData('direction', $post['direction']);
+            $model->setData('pace', $post['pace']);
+            $model->setData('materials', $post['materials']);
+            $model->setData('unclear', $post['understood']);
+            $model->setData('help_asked', $post['help_asked']);
+            $model->setData('helper', $post['helper']);
+            $model->setData('questions', $post['questions']);
+
+            $model->save();
+
             $this->inlineTranslation->resume();
             $this->messageManager->addSuccess(
                 __('Thanks for contacting us with your comments and questions. We\'ll respond to you very soon.')
-            );
+            ); 
             $this->_redirect('EvaluationForm/index');
             return;
         } catch (\Exception $e) {
